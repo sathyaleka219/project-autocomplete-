@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="angular.min.js"></script>
+<script src="angular-route.js"></script>
+<link rel="stylesheet" type="text/css" href="styy.css">
+<title>login form</title>
+</head>
+<body>
+<fieldset>
+<center>
+<h1><u><i>REGISTRATION  FORM</i></u></h1><br>
+<div ng-app="myapp" ng-controller="myctl">
+<b>FIRST NAME</b>  :  <input type="text" ng-model="firstname" placeholder="Enter First name"><br>
+<b>LAST NAME</b>   :  <input type="text"  ng-model="lastname" placeholder="Enter Last name"><br>
+<b>GENDER</b>      :  <select class="form-control" ng-model="gender">
+<option disabled selected value>select an option </option>
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
+<div ng-switch="gender">
+<div ng-switch-when="male">
+</div>
+<div ng-switch="gender">
+<div ng-switch-when="female">
+</div>
+<b>DEPARTMENT</b>  :  <select class="form-control" ng-model="department">
+<option disabled selected value>select an option </option>
+<option value="CSE">CSE</option>
+<option value="ECE">ECE</option>
+<option value="EEE">EEE</option>
+<option value="EIE">EIE</option>
+<option value="AERO">AERO</option>
+</select>
+<div ng-switch="department">
+<div ng-switch-when="cse">
+</div>
+<div ng-switch="department">
+<div ng-switch-when="ece">
+</div>
+<div ng-switch="department">
+<div ng-switch-when="eee">
+</div>
+<div ng-switch="department">
+<div ng-switch-when="eie">
+</div>
+<div ng-switch="department">
+<div ng-switch-when="aero">
+</div>
+<b>COURSE</b>    :  <select class="form-control" ng-model="course">
+<option disabled selected value>select an option </option>
+<option value="Ds">Datastructure</option>
+<option value="Dsci">Datascience</option>
+<option value="AI">Artificial Intelligence</option>
+<option value="ML">Machine Learning</option>
+<option value="IOT">Internet of Things</option>
+</select>
+<div ng-switch="course">
+<div ng-switch-when="ds">
+</div>
+<div ng-switch="course">
+<div ng-switch-when="dsci">
+</div>
+<div ng-switch="course">
+<div ng-switch-when="AI">
+</div>
+<div ng-switch="course">
+<div ng-switch-when="ML">
+</div>
+<div ng-switch="course">
+<div ng-switch-when="IOT">
+</div>
+<h2>
+<button ng-click="submit()"><b>REGISTER</b></button>
+</h2>
+</div>
+</fieldset>
+<script>
+var app=angular.module("myapp",[]);
+app.controller("myctl",function($scope,$http){
+$scope.submit=function(){
+alert($scope.firstname);
+alert($scope.lastname);
+alert($scope.gender);
+alert($scope.department);
+alert($scope.course);
+$http({
+url:"/createuser",
+data:{
+firstname:$scope.firstname,
+  lastname:$scope.lastname,
+  gender:$scope.gender,
+   department:$scope.department,
+   course:$scope.course
+   },
+   method: "POST"
+   }).success(function(output){
+   alert(JSON.sringify(output));
+   return false;
+   });
+   }
+   });
+   </script>    
+</center>
+</body>
+</html>

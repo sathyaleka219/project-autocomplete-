@@ -1,0 +1,35 @@
+h1{
+	color: purple;
+}
+center{
+	color: purple;
+}
+input[type=text], select {
+	text-align: left;
+	color: violet;
+    width: 75%;
+    padding: 15px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid black;
+	border-color: violet;
+	border-style: dashed;
+	border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button{
+	background-color: violet;
+	color: purple;
+	border-color: violet;
+	border-style: solid;
+	border-width: 20px;
+}
+
+body{
+   margin: 5px;
+   border: 2px solid violet;
+    background-color: grey;
+    padding: 20px;
+}
+
